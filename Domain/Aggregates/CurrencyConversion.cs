@@ -1,4 +1,4 @@
-using Domain.ValueObjects.cs;
+using Domain.ValueObjects;
 
 namespace Domain.Aggregates;
 
@@ -12,7 +12,7 @@ public class CurrencyConversion
     
     public  CurrencyConversion() { }
 
-    public CurrencyConversion(Currency sourceCurrency, Currency targetCurrency, decimal rate, DateTime retrievedAt)
+    public CurrencyConversion(Currency sourceCurrency, Currency targetCurrency, decimal rate, DateTimeOffset retrievedAt)
     {
         Id = Guid.NewGuid();
         SourceCurrency = sourceCurrency;
