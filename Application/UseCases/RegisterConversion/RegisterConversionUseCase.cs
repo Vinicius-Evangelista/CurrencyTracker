@@ -29,8 +29,8 @@ public class RegisterConversionUseCase(
 
         return new RegisterConversionResponse
         {
-            From = request.FromCurrency,
-            To = request.ToCurrency,
+            From = request.FromCurrency.ToString(),
+            To = request.ToCurrency.ToString(),
             Rate = rate,
             RetrievedAt = now
         };

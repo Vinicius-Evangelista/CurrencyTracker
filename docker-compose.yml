@@ -21,7 +21,7 @@ services:
       - sqlserver
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__Default=Server=sqlserver;Database=CurrencyTrackerDb;User=sa;Password=YourStrong!Passw0rd;
+      - ConnectionStrings__Default=Server=sqlserver;Database=CurrencyTracker;User Id=sa;Password=YourStrong!Passw0rd;Encrypt=False;TrustServerCertificate=True;
       - ASPNETCORE_URLS=http://+:8080
     ports:
       - "5000:8080"

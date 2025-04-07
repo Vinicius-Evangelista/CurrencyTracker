@@ -4,8 +4,8 @@ namespace Application.UseCases.RegisterConversion;
 
 public class RegisterConversionResponse
 {
-    public CurrencyCode From { get; set; }
-    public CurrencyCode To { get; set; }
+    public string From { get; set; }
+    public string To { get; set; }
     public decimal Rate { get; set; }
     public DateTime RetrievedAt { get; set; }
 }

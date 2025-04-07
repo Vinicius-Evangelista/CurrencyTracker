@@ -26,6 +26,13 @@ public class CurrencyConversionRepository : ICurrencyConversionRepository
             .OrderByDescending(x => x.RetrievedAt)
             .FirstOrDefaultAsync(cancellationToken);
     }
+    
+    public async Task<List<CurrencyConversion>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        return await _context.Conversions
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+    }
 
     public Task UpdateAsync(CurrencyConversion conversion, CancellationToken cancellationToken = default)
     {
