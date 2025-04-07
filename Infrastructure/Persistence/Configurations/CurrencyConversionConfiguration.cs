@@ -42,6 +42,7 @@ public class CurrencyConversionConfiguration : IEntityTypeConfiguration<Currency
         builder
             .Property(x => x.Rate)
             .HasColumnName("rate")
+            .HasColumnType("decimal(18,6)") 
             .IsRequired();
 
         builder
