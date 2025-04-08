@@ -39,7 +39,7 @@ cd currency-tracker
 ### 2. Build and start the containers
 
 ```bash
-docker compose up --build
+docker compose up
 ```
 
 > On the first run, it may take a few minutes to install Node.js and .NET dependencies.
