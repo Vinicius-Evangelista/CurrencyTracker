@@ -4,6 +4,6 @@ namespace Application.UseCases.RegisterConversion;
 
 public class RegisterConversionRequest
 {
-    public CurrencyCode FromCurrency { get; set; }
-    public CurrencyCode ToCurrency { get; set; }
+    public string FromCurrency { get; set; }
+    public string ToCurrency { get; set; }
 }

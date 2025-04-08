@@ -25,26 +25,27 @@ services:
       - ASPNETCORE_URLS=http://+:8080
     ports:
       - "5000:8080"
-       
-#  worker:
-#    build:
-#      context: .
-#      dockerfile: src/Worker/Dockerfile
-#    container_name: currency_worker
-#    depends_on:
-#      - sqlserver
-#    environment:
-#      - ConnectionStrings__Default=Server=sqlserver;Database=CurrencyTrackerDb;User=sa;Password=YourStrong!Passw0rd;
+  
+  worker:
+    build:
+      context: .
+      dockerfile: ./Worker/Dockerfile
+    container_name: currency_worker
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=sqlserver;Database=CurrencyTracker;User Id=sa;Password=YourStrong!Passw0rd;Encrypt=False;TrustServerCertificate=True;
 
-#  ui:
-#    build:
-#      context: ui
-#      dockerfile: Dockerfile
-#    container_name: currency_ui
-#    ports:
-#      - "8080:80"
-#    depends_on:
-#      - api
+  ui:
+    build:
+      context: ./currency-tracker-ui
+      dockerfile: ./Dockerfile
+    container_name: currency_ui
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
 
 volumes:
   sql_data:

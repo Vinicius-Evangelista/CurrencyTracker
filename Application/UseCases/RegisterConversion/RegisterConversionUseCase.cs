@@ -1,3 +1,4 @@
+using Domain.Enums;
 using Domain.Interfaces;
 
 namespace Application.UseCases.RegisterConversion;
@@ -18,8 +19,8 @@ public class RegisterConversionUseCase(
         var now = DateTime.UtcNow;
 
         var conversion = new CurrencyConversion(
-            sourceCurrency: new Currency(request.FromCurrency),
-            targetCurrency: new Currency(request.ToCurrency),
+            sourceCurrency: new Currency(Enum.Parse<CurrencyCode>(request.FromCurrency)),
+            targetCurrency: new Currency(Enum.Parse<CurrencyCode>(request.ToCurrency)),
             rate: rate,
             retrievedAt: DateTimeOffset.Now
         );
