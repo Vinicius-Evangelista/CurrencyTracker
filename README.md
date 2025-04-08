@@ -1,3 +1,6 @@
+
+![user interface](docs/imgs/ui.png)
+
 # 💱 Currency Tracker
 
 A fullstack application to monitor real-time exchange rates and keep a history of currency conversions.
