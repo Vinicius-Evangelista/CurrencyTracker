@@ -28,10 +28,15 @@ graph TB
     E[(PostgreSQL)]
   end
 
+  subgraph External Services
+    F[Exchange Rates API 🌐]
+  end
+
   A -->|HTTP| B
   B -->|API Calls| C
   C -->|Reads/Writes| E
   D -->|Reads/Writes| E
+  D -->|Fetch Rates| F
 ```
 
 ## ⚠️ Attention!
