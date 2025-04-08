@@ -5,8 +5,6 @@
 
 A fullstack application to monitor real-time exchange rates and keep a history of currency conversions.
 
-## 🧠 C4 Model - Container Diagram
-
 ```mermaid
 %%{init: {'theme': 'default'}}%%
 graph TB
@@ -15,11 +13,11 @@ graph TB
   end
 
   subgraph Frontend Container
-    B[Vue.js App <br/> Nginx <br/> Port 80]
+    B[Vue.js App]
   end
 
   subgraph Backend Container
-    C[.NET Web API <br/> ASP.NET Core <br/> Port 8080]
+    C[.NET Web API]
   end
 
   subgraph Worker Container
@@ -27,11 +25,11 @@ graph TB
   end
 
   subgraph Database Container
-    E[(PostgreSQL <br/> Port 5432)]
+    E[(PostgreSQL)]
   end
 
-  A -->|HTTP (80)| B
-  B -->|API Calls to :8080| C
+  A -->|HTTP| B
+  B -->|API Calls| C
   C -->|Reads/Writes| E
   D -->|Reads/Writes| E
 ```
@@ -47,8 +45,7 @@ So, if you spot something that could be improved... I probably noticed it too, I
 
 ## 🔧 Requirements
 
-- Docker  
-- Docker Compose  
+- [Docker](https://www.docker.com/get-started/)
 
 ## 🧱 Architecture
 
@@ -85,16 +82,6 @@ docker compose up
 - **SQL Server**: localhost:1433  
   - User: `sa`  
   - Password: `YourStrong!Passw0rd`  
-
-## 📦 Folder Structure
-
-```
-.
-├── docker-compose.yml
-├── WebApi/                # ASP.NET Core Web API
-├── src/Worker/            # Background Worker Service
-└── currency-tracker-ui/   # Vue.js Frontend App
-```
 
 ## 📝 Notes
 
