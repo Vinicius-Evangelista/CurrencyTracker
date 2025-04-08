@@ -1,6 +1,7 @@
 using Application.UseCases.UpdateConversion;
 using Domain.Interfaces;
 using Hangfire;
+using Hangfire.SqlServer;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Services.ExchangeRateApi;
@@ -19,7 +20,11 @@ Host.CreateDefaultBuilder(args)
             options.UseSqlServer(configuration.GetConnectionString("Default")));
 
         services.AddHangfire(config =>
-            config.UseSqlServerStorage(configuration.GetConnectionString("Default"))
+            config.UseSqlServerStorage(configuration.GetConnectionString("Default"),
+            new SqlServerStorageOptions()
+            {
+                PrepareSchemaIfNecessary = true
+            })
         );
 
         services.AddHangfireServer();
