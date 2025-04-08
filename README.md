@@ -5,6 +5,37 @@
 
 A fullstack application to monitor real-time exchange rates and keep a history of currency conversions.
 
+## 🧠 C4 Model - Container Diagram
+
+```mermaid
+%%{init: {'theme': 'default'}}%%
+graph TB
+  subgraph Browser
+    A[User <br/> 🧑‍💻] 
+  end
+
+  subgraph Frontend Container
+    B[Vue.js App <br/> Nginx <br/> Port 80]
+  end
+
+  subgraph Backend Container
+    C[.NET Web API <br/> ASP.NET Core <br/> Port 8080]
+  end
+
+  subgraph Worker Container
+    D[.NET Worker <br/> Background Tasks]
+  end
+
+  subgraph Database Container
+    E[(PostgreSQL <br/> Port 5432)]
+  end
+
+  A -->|HTTP (80)| B
+  B -->|API Calls to :8080| C
+  C -->|Reads/Writes| E
+  D -->|Reads/Writes| E
+```
+
 ## ⚠️ Attention!
 
 - I'm **not a Vue expert** (yet 👀) — but I had a great time working with the technology! I hope I did okay, and I'm genuinely excited to dive deeper into it. 😄
