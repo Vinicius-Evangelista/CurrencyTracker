@@ -37,6 +37,8 @@ graph TB
   C -->|Reads/Writes| E
   D -->|Reads/Writes| E
   D -->|Fetch Rates| F
+  C -->|Fetch Rates| F
+
 ```
 
 ## ⚠️ Attention!
