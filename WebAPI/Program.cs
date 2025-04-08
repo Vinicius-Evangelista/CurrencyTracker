@@ -37,19 +37,13 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-
 using var scope = app.Services.CreateScope();
 
 var services = scope.ServiceProvider;
 var context = services.GetRequiredService<CurrencyConversionDbContext>();
 
-var databaseJustCreated = await context.Database.EnsureCreatedAsync();
-
-if (!databaseJustCreated)
-{
-    await context.Database.EnsureDeletedAsync();
-    await context.Database.MigrateAsync();
-}
+await context.Database.EnsureDeletedAsync();
+await context.Database.MigrateAsync();
 
 app.UseCors();
 

@@ -61,7 +61,7 @@ const currencyCodes = ['USD', 'EUR', 'BRL', 'GBP', 'JPY', 'ARS', 'CAD', 'AUD', '
 
 const fetchRate = async () => {
   rate.value = null
-  const res = await fetch(`http://api:5000/api/currency-conversions`, {
+  const res = await fetch(`/api/currency-conversions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ const fetchRate = async () => {
 }
 
 const fetchHistory = async () => {
-  const res = await fetch(`http://api:5000/api/conversions?searchValue=${filterText.value}`, {
+  const res = await fetch(`/api/conversions?searchValue=${filterText.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'

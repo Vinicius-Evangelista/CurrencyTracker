@@ -19,8 +19,8 @@ public class RegisterConversionUseCase(
         var now = DateTime.UtcNow;
 
         var conversion = new CurrencyConversion(
-            sourceCurrency: new Currency(Enum.Parse<CurrencyCode>(request.FromCurrency)),
-            targetCurrency: new Currency(Enum.Parse<CurrencyCode>(request.ToCurrency)),
+            sourceCurrency: new Currency(Enum.Parse<CurrencyCode>(request.FromCurrency.ToUpper())),
+            targetCurrency: new Currency(Enum.Parse<CurrencyCode>(request.ToCurrency.ToUpper())),
             rate: rate,
             retrievedAt: DateTimeOffset.Now
         );
