@@ -37,6 +37,20 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+
+using var scope = app.Services.CreateScope();
+
+var services = scope.ServiceProvider;
+var context = services.GetRequiredService<CurrencyConversionDbContext>();
+
+var databaseJustCreated = await context.Database.EnsureCreatedAsync();
+
+if (!databaseJustCreated)
+{
+    await context.Database.EnsureDeletedAsync();
+    await context.Database.MigrateAsync();
+}
+
 app.UseCors();
 
 app.UseSwagger();
@@ -51,7 +65,6 @@ app.MapPost("/api/currency-conversions", async (
     return Results.Ok(response);
 });
 
-
 app.MapGet("/api/conversions",
     async ([FromQuery] string? searchValue, ViewConversionUseCase useCase) =>
     {
@@ -60,4 +73,4 @@ app.MapGet("/api/conversions",
         return Results.Ok(result);
     });
 
-app.Run();
+await app.RunAsync();
