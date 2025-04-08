@@ -1,7 +1,12 @@
-
 ![user interface](docs/imgs/ui.png)
 
 # 💱 Currency Tracker
+
+---
+
+> I noticed that the project requirements mention the use of "the DDD pattern", but actually, DDD is not a pattern — it's a **strategic approach to business modeling** and software design. It helps to align the technical solution with the business domain through concepts like bounded contexts, aggregates, and ubiquitous language.
+
+---
 
 A fullstack application to monitor real-time exchange rates and keep a history of currency conversions.
 
